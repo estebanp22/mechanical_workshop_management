@@ -1,20 +1,34 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.*;
-import lombok.Data;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
-
+/**
+ * Entity representing a mechanic in the system.
+ */
 @Entity
-@Table(name = "mechanics")
-@Data
+@Getter
+@Setter
 public class Mechanic {
+
+    /**
+     * Unique identifier for the mechanic.
+     */
     @Id
-    @Column(nullable = false, length = 100)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long document;
 
-    @Column(nullable = false, length = 100)
+    /**
+     * Name of the mechanic.
+     */
     private String name;
 
-    @Column(nullable = false, length = 100)
-    private String profession;
+    /**
+     * Phone number of the mechanic.
+     */
+    private String phone;
 }
